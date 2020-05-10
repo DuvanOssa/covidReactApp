@@ -18,6 +18,7 @@ export interface CountryCardProps {
   infectedAmount: number;
   recoveredAmount: number;
   deadAmount: number;
+  onclick(): any;
 }
 
 export const CountryCard = ({
@@ -25,11 +26,13 @@ export const CountryCard = ({
   countryName,
   infectedAmount,
   recoveredAmount,
-  deadAmount
+  deadAmount,
+  onclick
 }: CountryCardProps) => {
   return (
     <Card
       className="singleCard"
+      onClick={onclick}
       cover={
         <ReactCountryFlag
           countryCode={countryCode}

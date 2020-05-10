@@ -9,9 +9,10 @@ import recovered from '../../assets/icons/people.svg';
 import dead from '../../assets/icons/grave.svg';
 import HomeService from '../../services/api/HomeService';
 
-const Home = ({ title, history }) => {
+const Countries = ({ title, match, history }) => {
   const [globalDataState, setGlobalDataState] = useState(null);
   const [coutryDataList, setCoutryDataList] = useState(null);
+  const country = history.location.state;
 
   useEffect(() => {
     getSumary();
@@ -34,26 +35,26 @@ const Home = ({ title, history }) => {
   return (
     <Fragment>
       <div className="contentHeader">
-        <h1 className="contentHeaderTitle">{title}</h1>
+        <h1 className="contentHeaderTitle">{`${title}: ${country.Country}`}</h1>
       </div>
       <hr />
       <div className="contentBody">
-        {globalDataState && (
+        {country && (
           <div className="worldInfo">
             <WorldInfoSection
               title="Infectados"
               icon={infected}
-              amount={globalDataState.TotalConfirmed}
+              amount={country.TotalConfirmed}
             />
             <WorldInfoSection
               title="Recuperados"
               icon={recovered}
-              amount={globalDataState.TotalRecovered}
+              amount={country.TotalRecovered}
             />
             <WorldInfoSection
               title="Muertos"
               icon={dead}
-              amount={globalDataState.TotalDeaths}
+              amount={country.TotalDeaths}
             />
           </div>
         )}
@@ -79,4 +80,4 @@ const Home = ({ title, history }) => {
   );
 };
 
-export default Home;
+export default Countries;
