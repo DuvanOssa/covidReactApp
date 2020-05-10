@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './world-info-section.scss';
+import numeral from 'numeral';
 
 /* eslint-disable-next-line */
 export interface WorldInfoSectionProps {
@@ -19,7 +20,7 @@ export const WorldInfoSection = ({
       <span className="worldInfoTitle">{title}</span>
       <div style={{ display: 'flex' }}>
         <img className="worldInfoIcon" src={icon}></img>
-        <span className="worldInfoText">{amount}</span>
+        <span className="worldInfoText">{numeral(amount).format('0,0')}</span>
       </div>
     </div>
   );

@@ -29,6 +29,7 @@
   "dependencies": {
     "antd": "^4.2.0",
     "document-register-element": "1.13.1",
+    "numeral": "^2.0.6",
     "react": "16.12.0",
     "react-country-flag": "^2.1.0",
     "react-dom": "16.12.0",

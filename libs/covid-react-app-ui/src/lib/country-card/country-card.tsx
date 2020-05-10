@@ -7,6 +7,7 @@ import ReactCountryFlag from 'react-country-flag';
 import infected from '../../../../../apps/covid-react-app/src/assets/icons/bacteria.svg';
 import recovered from '../../../../../apps/covid-react-app/src/assets/icons/people.svg';
 import dead from '../../../../../apps/covid-react-app/src/assets/icons/grave.svg';
+import numeral from 'numeral';
 
 const { Meta } = Card;
 
@@ -44,15 +45,21 @@ export const CountryCard = ({
       actions={[
         <div className="singleCardActions">
           <img src={infected} className="singleCardIcon"></img>
-          <span className="singleCardActionsAmount">{infectedAmount}</span>
+          <span className="singleCardActionsAmount">
+            {numeral(infectedAmount).format('0a')}
+          </span>
         </div>,
         <div className="singleCardActions">
           <img src={recovered} className="singleCardIcon"></img>
-          <span className="singleCardActionsAmount">{recoveredAmount}</span>
+          <span className="singleCardActionsAmount">
+            {numeral(recoveredAmount).format('0a')}
+          </span>
         </div>,
         <div className="singleCardActions">
           <img src={dead} className="singleCardIcon"></img>
-          <span className="singleCardActionsAmount">{deadAmount}</span>
+          <span className="singleCardActionsAmount">
+            {numeral(deadAmount).format('0a')}
+          </span>
         </div>
       ]}
     >
