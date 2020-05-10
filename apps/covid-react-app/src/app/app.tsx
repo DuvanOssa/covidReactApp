@@ -1,115 +1,163 @@
 import React from 'react';
+import '../styles.scss';
+import { Layout, Menu, Input, Card } from 'antd';
+import logo from '../assets/img/logo.png';
+import infected from '../assets/icons/bacteria.svg';
+import recovered from '../assets/icons/people.svg';
+import dead from '../assets/icons/grave.svg';
+import ReactCountryFlag from 'react-country-flag';
 
-import './app.scss';
+const { Search } = Input;
 
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
+const { Header, Content } = Layout;
+const { Meta } = Card;
 
 export const App = () => {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./app.scss file.
-   */
   return (
-    <div className="app">
-      <header className="flex">
-        <Logo width="75" height="75" />
-        <h1>Welcome to covid-react-app!</h1>
-      </header>
-      <main>
-        <h2>Resources &amp; Tools</h2>
-        <p>Thank you for using and showing some ♥ for Nx.</p>
-        <div className="flex github-star-container">
-          <a
-            href="https://github.com/nrwl/nx"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {' '}
-            If you like Nx, please give it a star:
-            <div className="github-star-badge">
-              <img src={star} className="material-icons" alt="" />
-              Star
-            </div>
-          </a>
+    <Layout>
+      <Header>
+        <div className="logo">
+          <img src={logo} className="logoImage"></img>
+          <span className="logoTitle">CovidReactApp</span>
         </div>
-        <p>Here are some links to help you get started.</p>
-        <ul className="resources">
-          <li className="col-span-2">
-            <a
-              className="resource flex"
-              href="https://connect.nrwl.io/app/courses/nx-workspaces/intro"
-            >
-              Nx video course
-            </a>
-          </li>
-          <li className="col-span-2">
-            <a
-              className="resource flex"
-              href="https://nx.dev/react/getting-started/what-is-nx"
-            >
-              Nx video tutorial
-            </a>
-          </li>
-          <li className="col-span-2">
-            <a
-              className="resource flex"
-              href="https://nx.dev/react/tutorial/01-create-application"
-            >
-              Interactive tutorial
-            </a>
-          </li>
-          <li className="col-span-2">
-            <a className="resource flex" href="https://nx.app/">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 120 120"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+        <div className="divSearch">
+          <Search placeholder="Buscar..." enterButton></Search>
+        </div>
+      </Header>
+      <Layout className="layoutContent">
+        <Content className="content">
+          <div className="contentHeader">
+            <h1 className="contentHeaderTitle">INFORMACIÓN GENERAL</h1>
+          </div>
+          <hr />
+          <div className="contentBody">
+            <div className="worldInfo">
+              <div className="worldInfoSection">
+                <span className="worldInfoTitle">Infectados</span>
+                <div style={{ display: 'flex' }}>
+                  <img className="worldInfoIcon" src={infected}></img>
+                  <span className="worldInfoText">170000</span>
+                </div>
+              </div>
+              <div className="worldInfoSection">
+                <span className="worldInfoTitle">Recuperados</span>
+                <div style={{ display: 'flex' }}>
+                  <img className="worldInfoIcon" src={recovered}></img>
+                  <span className="worldInfoText">170000</span>
+                </div>
+              </div>
+              <div className="worldInfoSection">
+                <span className="worldInfoTitle">Muertos</span>
+                <div style={{ display: 'flex' }}>
+                  <img className="worldInfoIcon" src={dead}></img>
+                  <span className="worldInfoText">170000</span>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div className="cardGroup">
+              <Card
+                className="singleCard"
+                cover={
+                  <ReactCountryFlag
+                    countryCode="CO"
+                    svg
+                    style={{
+                      width: '100%',
+                      height: '120px',
+                      objectFit: 'cover'
+                    }}
+                    title="CO"
+                  />
+                }
+                actions={[
+                  <div className="singleCardActions">
+                    <img src={infected} className="singleCardIcon"></img>
+                    <span className="singleCardActionsAmount">10.4k</span>
+                  </div>,
+                  <div className="singleCardActions">
+                    <img src={recovered} className="singleCardIcon"></img>
+                    <span className="singleCardActionsAmount">2.56k</span>
+                  </div>,
+                  <div className="singleCardActions">
+                    <img src={dead} className="singleCardIcon"></img>
+                    <span className="singleCardActionsAmount">445</span>
+                  </div>
+                ]}
               >
-                <path
-                  d="M120 15V30C103.44 30 90 43.44 90 60C90 76.56 76.56 90 60 90C43.44 90 30 103.44 30 120H15C6.72 120 0 113.28 0 105V15C0 6.72 6.72 0 15 0H105C113.28 0 120 6.72 120 15Z"
-                  fill="#0E2039"
-                />
-                <path
-                  d="M120 30V105C120 113.28 113.28 120 105 120H30C30 103.44 43.44 90 60 90C76.56 90 90 76.56 90 60C90 43.44 103.44 30 120 30Z"
-                  fill="white"
-                />
-              </svg>
-              <span className="gutter-left">Nx Cloud</span>
-            </a>
-          </li>
-        </ul>
-        <h2>Next Steps</h2>
-        <p>Here are some things you can do with Nx.</p>
-        <details open>
-          <summary>Add UI library</summary>
-          <pre>{`# Generate UI lib
-nx g @nrwl/react:lib ui
-
-# Add a component
-nx g @nrwl/react:component xyz --project ui`}</pre>
-        </details>
-        <details>
-          <summary>View dependency graph</summary>
-          <pre>{`nx dep-graph`}</pre>
-        </details>
-        <details>
-          <summary>Run affected commands</summary>
-          <pre>{`# see what's been affected by changes
-nx affected:dep-graph
-
-# run tests for current changes
-nx affected:test
-
-# run e2e tests for current changes
-nx affected:e2e
-`}</pre>
-        </details>
-      </main>
-    </div>
+                <Meta title="Colombia"></Meta>
+              </Card>
+              <Card
+                className="singleCard"
+                cover={
+                  <ReactCountryFlag
+                    countryCode="CL"
+                    svg
+                    style={{
+                      width: '100%',
+                      height: '120px',
+                      objectFit: 'cover'
+                    }}
+                    title="CL"
+                  />
+                }
+                actions={[
+                  <img src={infected} className="singleCardIcon"></img>,
+                  <img src={recovered} className="singleCardIcon"></img>,
+                  <img src={dead} className="singleCardIcon"></img>
+                ]}
+              >
+                <Meta title="Chile"></Meta>
+              </Card>
+              <Card
+                className="singleCard"
+                cover={
+                  <ReactCountryFlag
+                    countryCode="CU"
+                    svg
+                    style={{
+                      width: '100%',
+                      height: '120px',
+                      objectFit: 'cover'
+                    }}
+                    title="CU"
+                  />
+                }
+                actions={[
+                  <img src={infected} className="singleCardIcon"></img>,
+                  <img src={recovered} className="singleCardIcon"></img>,
+                  <img src={dead} className="singleCardIcon"></img>
+                ]}
+              >
+                <Meta title="Cuba"></Meta>
+              </Card>
+              <Card
+                className="singleCard"
+                cover={
+                  <ReactCountryFlag
+                    countryCode="CN"
+                    svg
+                    style={{
+                      width: '100%',
+                      height: '120px',
+                      objectFit: 'cover'
+                    }}
+                    title="CN"
+                  />
+                }
+                actions={[
+                  <img src={infected} className="singleCardIcon"></img>,
+                  <img src={recovered} className="singleCardIcon"></img>,
+                  <img src={dead} className="singleCardIcon"></img>
+                ]}
+              >
+                <Meta title="China"></Meta>
+              </Card>
+            </div>
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
   );
 };
 

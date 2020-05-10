@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import './assets/sass/app.scss';
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+hr {
+    height: 1px !important;
+    color: #dbdbdb;
+    background-color: #dbdbdb;
+    border: none;
+    margin: 24px 0;
+}
