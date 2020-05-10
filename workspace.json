@@ -109,6 +109,34 @@
           }
         }
       }
+    },
+    "covid-react-app-ui": {
+      "root": "libs/covid-react-app-ui",
+      "sourceRoot": "libs/covid-react-app-ui/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/covid-react-app-ui/.eslintrc",
+            "tsConfig": [
+              "libs/covid-react-app-ui/tsconfig.lib.json",
+              "libs/covid-react-app-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/covid-react-app-ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/covid-react-app-ui/jest.config.js",
+            "tsConfig": "libs/covid-react-app-ui/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -25,6 +25,9 @@
     "covid-react-app-e2e": {
       "tags": [],
       "implicitDependencies": ["covid-react-app"]
+    },
+    "covid-react-app-ui": {
+      "tags": []
     }
   }
 }
