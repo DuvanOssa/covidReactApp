@@ -2,16 +2,18 @@ import React from 'react';
 
 import './country-card.scss';
 import { Card } from 'antd';
-import Meta from 'antd/lib/card/Meta';
 import ReactCountryFlag from 'react-country-flag';
 
 import infected from '../../../../../apps/covid-react-app/src/assets/icons/bacteria.svg';
 import recovered from '../../../../../apps/covid-react-app/src/assets/icons/people.svg';
 import dead from '../../../../../apps/covid-react-app/src/assets/icons/grave.svg';
 
+const { Meta } = Card;
+
 /* eslint-disable-next-line */
 export interface CountryCardProps {
   countryCode: string;
+  countryName: string;
   infectedAmount: number;
   recoveredAmount: number;
   deadAmount: number;
@@ -19,6 +21,7 @@ export interface CountryCardProps {
 
 export const CountryCard = ({
   countryCode,
+  countryName,
   infectedAmount,
   recoveredAmount,
   deadAmount
@@ -31,7 +34,7 @@ export const CountryCard = ({
           countryCode={countryCode}
           svg
           style={{
-            width: '100%',
+            width: '200px',
             height: '120px',
             objectFit: 'cover'
           }}
@@ -53,7 +56,7 @@ export const CountryCard = ({
         </div>
       ]}
     >
-      <Meta title="Colombia"></Meta>
+      <Meta title={countryName}></Meta>
     </Card>
   );
 };
