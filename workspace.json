@@ -135,6 +135,36 @@
             "tsConfig": "libs/covid-react-app-ui/tsconfig.spec.json",
             "passWithNoTests": true
           }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/covid-react-app-ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/covid-react-app-ui",
+            "config": {
+              "configFolder": "libs/covid-react-app-ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       }
     }

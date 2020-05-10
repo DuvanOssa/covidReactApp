@@ -79,29 +79,6 @@
         display: flex;
         justify-content: space-around;
         width: 100%;
-        .worldInfoSection {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            justify-content: center;
-            .worldInfoTitle {
-                font-size: 22px;
-                font-weight: bold;
-                color: map-get($colors, primary);
-                margin-bottom: 16px;
-            }
-            .worldInfoIcon {
-                width: 70px;
-                margin-right: 16px;
-            }
-            .worldInfoText {
-                font-size: 20px;
-                font-weight: bold;
-                color: #3c3c3c;
-                align-self: center;
-            }
-        }
     }
     .cardGroup {
         width: 100%;
@@ -109,39 +86,5 @@
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 10px;
         grid-auto-rows: minmax(200px, auto);
-        .singleCard {
-            width: 200px;
-            cursor: pointer;
-            .ant-card-meta-title {
-                text-align: center;
-                font-size: 16px;
-                font-weight: bold;
-            }
-            .singleCardIcon {
-                width: 20px;
-                height: 20px;
-            }
-            .ant-card-body {
-                padding: 16px;
-            }
-            .ant-card-actions {
-                li span {
-                    cursor: auto;
-                    &:hover {
-                        color: rgba(0, 0, 0, 0.45);
-                    }
-                }
-                .singleCardActions {
-                    display: flex;
-                    width: 100%;
-                    justify-content: space-around;
-                    align-items: center;
-                    .singleCardActionsAmount {
-                        font-size: 13px;
-                        font-weight: bold;
-                    }
-                }
-            }
-        }
     }
 }
