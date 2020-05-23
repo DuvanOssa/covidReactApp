@@ -19,10 +19,12 @@ const Countries = ({ title, match, history }) => {
   }, []);
 
   const getSumary = () => {
-    HomeService.getSummary().then(sumary => {
-      setGlobalDataState(sumary.Global);
-      setCoutryDataList(sumary.Countries);
-    });
+    HomeService.getSummary()
+      .then(sumary => {
+        setGlobalDataState(sumary.Global);
+        setCoutryDataList(sumary.Countries);
+      })
+      .catch(e => getSumary());
   };
 
   const handleClick = country => {

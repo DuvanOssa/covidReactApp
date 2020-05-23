@@ -3,11 +3,8 @@ import React from 'react';
 import './country-card.scss';
 import { Card } from 'antd';
 import ReactCountryFlag from 'react-country-flag';
-
-import infected from '../../../../../apps/covid-react-app/src/assets/icons/bacteria.svg';
-import recovered from '../../../../../apps/covid-react-app/src/assets/icons/people.svg';
-import dead from '../../../../../apps/covid-react-app/src/assets/icons/grave.svg';
 import numeral from 'numeral';
+import Icon from '../icon/icon';
 
 const { Meta } = Card;
 
@@ -31,6 +28,8 @@ export const CountryCard = ({
 }: CountryCardProps) => {
   return (
     <Card
+      id="countryCard"
+      data-testid="countryCard"
       className="singleCard"
       onClick={onclick}
       cover={
@@ -47,20 +46,25 @@ export const CountryCard = ({
       }
       actions={[
         <div className="singleCardActions">
-          <img src={infected} className="singleCardIcon"></img>
-          <span className="singleCardActionsAmount">
+          <Icon icon="infected-icon" size="20" className="singleCardIcon" />
+          <span className="singleCardActionsAmount" data-testid="infectedInfo">
             {numeral(infectedAmount).format('0a')}
           </span>
         </div>,
         <div className="singleCardActions">
-          <img src={recovered} className="singleCardIcon"></img>
-          <span className="singleCardActionsAmount">
+          <Icon icon="recovered-icon" size="20" className="singleCardIcon" />
+          <span className="singleCardActionsAmount" data-testid="recoveredInfo">
             {numeral(recoveredAmount).format('0a')}
           </span>
         </div>,
         <div className="singleCardActions">
-          <img src={dead} className="singleCardIcon"></img>
-          <span className="singleCardActionsAmount">
+          <Icon
+            icon="dead-icon"
+            size="20"
+            className="singleCardIcon"
+            style={{ strokeWidth: '1px' }}
+          />
+          <span className="singleCardActionsAmount" data-testid="deadInfo">
             {numeral(deadAmount).format('0a')}
           </span>
         </div>

@@ -1,13 +1,17 @@
 import { getGreeting } from '../support/app.po';
 
 describe('covid-react-app', () => {
-  beforeEach(() => cy.visit('/'));
+  before(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to covid-react-app!');
+  it('should render', () => {
+    cy.get('.logoTitle').contains('CovidReactApp');
+  });
+  it('shoul go to country', () => {
+    cy.get(':nth-child(1) > .ant-card-cover').click();
+    cy.get('.contentHeaderTitle').contains('País: Afghanistan');
+  });
+  it('shoul let me write', () => {
+    cy.get('.ant-input').type('Colombia');
+    cy.get('.ant-input').should('have.value', 'Colombia');
   });
 });

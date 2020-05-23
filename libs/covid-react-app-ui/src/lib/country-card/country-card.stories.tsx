@@ -10,5 +10,6 @@ storiesOf('CountryCard', module).add('Default', () => (
     infectedAmount={200}
     recoveredAmount={100}
     deadAmount={100}
+    onclick={() => {}}
   />
 ));
